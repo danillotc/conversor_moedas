@@ -2,3 +2,8 @@
     text-align: center;
     padding-top: .5em;
 }
+
+.inputQuantidade,
+select {
+    margin: .5em
+}

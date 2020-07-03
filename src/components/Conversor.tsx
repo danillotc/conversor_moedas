@@ -56,7 +56,7 @@ export default () => {
     return (
         <div className="conversor">
             <h2>Quantidade: 
-                <input type='number' onChange={qtdHandler}/>
+                <input className='inputQuantidade' type='number' onChange={qtdHandler}/>
             </h2>
 
             <h2>Converter de 
