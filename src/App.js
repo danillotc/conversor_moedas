@@ -7,8 +7,7 @@ function App() {
   return (
     <div className="App">
       <h1>Conversor de moedas</h1>
-      <Conversor moedaA="BRL" moedaB="USD"/>
-      <Conversor moedaA="USD" moedaB="BRL"/>
+      <Conversor />
     </div>
   );
 }
