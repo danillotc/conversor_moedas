@@ -1,4 +1,4 @@
-import React, { useState, ChangeEvent } from 'react';
+import React, { useState, useEffect, ChangeEvent } from 'react';
 import './Conversor.css'
 
 export default () => {
@@ -11,16 +11,17 @@ export default () => {
     const [resultado, setResultado] = useState<number>(0);
 
     // Obtendo lista de moedas disponíveis
-    let url = "https://api.exchangeratesapi.io/latest"
-
-    fetch(url).then(resultado => resultado.json())
-    .then (json => {
-        let rates = Object.keys(json['rates']);
-        rates.push('EUR');
-        rates.sort();
-        setMoedas(rates);
-    })    
-
+    useEffect (() => {
+        let url = "https://api.exchangeratesapi.io/latest"
+        fetch(url)
+            .then(resultado => resultado.json())
+            .then (json => {
+                let rates = Object.keys(json['rates']);
+                rates.push('EUR');
+                rates.sort();
+                setMoedas(rates);
+            })    
+    }, [])
     
     // Funções Handle    
     function qtdHandler(event: ChangeEvent<HTMLInputElement>) {
@@ -38,32 +39,30 @@ export default () => {
         setMoedaB(moedaSelecionada);
     }
     
-    // Conversão - buttonHandler
-    function converter() {
-        let url = `https://api.exchangeratesapi.io/latest?base=${moedaB}&symbols=${moedaA}`
-
+    // Conversão
+    useEffect (() => {
+        let url = `https://api.exchangeratesapi.io/latest?base=${moedaA}&symbols=${moedaB}`
         fetch(url)
             .then(resultado => {
                 return resultado.json()
             })
             .then(json =>{
-                let cotacao = parseFloat(json['rates'][moedaA]);
+                let cotacao = parseFloat(json['rates'][moedaB]);
                 let valorConvertido = Number((qtd * cotacao).toFixed(2));
                 setResultado(valorConvertido);
             })
-    }
+    }, [moedaA, moedaB, qtd])
 
     // HTML retornado    
     return (
         <div className="conversor">
-            <h2>Quantidade: 
-                <input className='inputQuantidade' type='number' onChange={qtdHandler}/>
-            </h2>
 
-            <h2>Converter de 
+            <h2>Converter 
+    
+                <input placeholder="quantidade" className='inputQuantidade' type='number' onChange={qtdHandler}/>
                 
                 <select name="moedas" id="moedas" onChange={moedaAHandler}>
-                    <option value="BRL"></option>
+                    <option></option>
                     {moedas.map(moeda => 
                         <option key={moeda} value={moeda}>{moeda}</option>    
                     )}
@@ -72,16 +71,18 @@ export default () => {
                 para 
 
                 <select name="moedas" id="moedas" onChange={moedaBHandler}>
-                    <option value="BRL"></option>
+                    <option></option>
                     {moedas.map(moeda => 
                         <option key={moeda} value={moeda}>{moeda}</option>    
                     )}
                 </select>
                 </h2>
 
-            <input type="button" value="Converter!" onClick={converter}/>
-            
-            <h2>{resultado}</h2>
+            <h2>
+                {resultado && moedaA && moedaB 
+                ? resultado 
+                : 0}
+            </h2>
         </div>
     )
 }
