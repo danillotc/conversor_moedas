@@ -17,6 +17,7 @@ export default () => {
     .then (json => {
         let rates = Object.keys(json['rates']);
         rates.push('EUR');
+        rates.sort();
         setMoedas(rates);
     })    
 
