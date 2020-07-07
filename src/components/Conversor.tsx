@@ -57,10 +57,14 @@ export default () => {
     return (
         <div className="conversor">
 
-            <h2>Converter 
+            <p>Converter 
     
                 <input placeholder="quantidade" className='inputQuantidade' type='number' onChange={qtdHandler}/>
-                
+            
+            </p>
+
+            <p>
+                de
                 <select name="moedas" id="moedas" onChange={moedaAHandler}>
                     <option></option>
                     {moedas.map(moeda => 
@@ -69,14 +73,13 @@ export default () => {
                 </select>
                 
                 para 
-
                 <select name="moedas" id="moedas" onChange={moedaBHandler}>
                     <option></option>
                     {moedas.map(moeda => 
                         <option key={moeda} value={moeda}>{moeda}</option>    
                     )}
                 </select>
-                </h2>
+            </p>
 
             <h2>
                 {resultado && moedaA && moedaB 

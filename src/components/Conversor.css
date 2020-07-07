@@ -1,9 +1,17 @@
 .conversor {
     text-align: center;
-    padding-top: .5em;
+    padding-top: 3em;
 }
 
 .inputQuantidade,
 select {
     margin: .5em
+}
+
+p {
+    padding: .5em;
+}
+
+h2 {
+    font-size: 3em;
 }
