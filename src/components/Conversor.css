@@ -4,9 +4,11 @@
     border: solid 1px black;
     padding: 1em;
     margin: 1em;
+    max-width: fit-content;
 }
 
 .inputQuantidade {
+    width: 8em;
     /* Remover setas de quantidade */
     -webkit-appearance: none;
     margin: 0;
@@ -15,7 +17,8 @@
 
 .inputQuantidade,
 select {
-    margin: .5em
+    margin: .5em;
+    font-size: 1em;
 }
 
 p {
@@ -24,37 +27,37 @@ p {
 }
 
 h2 {
-    font-size: 3em;
+    font-size: 2.5em;
 }
 
 @media (max-width: 600px) {
     p {
         padding: .3em;
-        font-size: .8em;
+        font-size: .9em;
     }   
     
     .inputQuantidade,
     select {
-        font-size: 1em;
+        font-size: .9em;
     }
 
     h2 {
-        font-size: 2em;
+        font-size: 2.2em;
     }   
 }
 
 @media (max-width: 400px) {
     p {
         padding: .1em;
-        font-size: .6em;
+        font-size: .8em;
     }   
     
     .inputQuantidade,
     select {
-        font-size: .5em
+        font-size: .8em
     }
 
     h2 {
-        font-size: 1em;
+        font-size: 1.5em;
     }   
 }
