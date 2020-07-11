@@ -1,6 +1,16 @@
 .conversor {
     text-align: center;
-    padding-top: 3em;
+    background-color: whitesmoke;
+    border: solid 1px black;
+    padding: 1em;
+    margin: 1em;
+}
+
+.inputQuantidade {
+    /* Remover setas de quantidade */
+    -webkit-appearance: none;
+    margin: 0;
+    -moz-appearance: textfield;
 }
 
 .inputQuantidade,
@@ -10,8 +20,41 @@ select {
 
 p {
     padding: .5em;
+    font-size: 1em;
 }
 
 h2 {
     font-size: 3em;
+}
+
+@media (max-width: 600px) {
+    p {
+        padding: .3em;
+        font-size: .8em;
+    }   
+    
+    .inputQuantidade,
+    select {
+        font-size: 1em;
+    }
+
+    h2 {
+        font-size: 2em;
+    }   
+}
+
+@media (max-width: 400px) {
+    p {
+        padding: .1em;
+        font-size: .6em;
+    }   
+    
+    .inputQuantidade,
+    select {
+        font-size: .5em
+    }
+
+    h2 {
+        font-size: 1em;
+    }   
 }
