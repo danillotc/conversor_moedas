@@ -23,7 +23,7 @@ function App() {
       <div className="ConversorContainer">
         <Conversor />
         {conversores}
-        {conversores.length<=4
+        {conversores.length<=6
         ? <Adicionador onClick={onClick}/>
         : "Esta viagem é realmente necessária?"}
       </div>

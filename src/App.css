@@ -1,6 +1,5 @@
 .App {
-    background-image: url(./images/background.jpg);
-    background-size: cover;
+    background-color: darkgray;
     height: 100%;
 }
 
@@ -9,13 +8,15 @@ h1 {
     font-size: 2.5em;
     font-family: 'Raleway', sans-serif;
     color: black;
+    border-bottom: solid 2px black;
     background-color: whitesmoke;
     padding: .2em;
 }
 
 .ConversorContainer {
+    background-color: darkgray;
     display: flex;
-    margin-top: 3em;
+    margin-top: 1em;
     flex-direction: row;
     justify-content: space-around;
     flex-wrap: wrap;
