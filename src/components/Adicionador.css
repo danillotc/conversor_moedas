@@ -1,0 +1,20 @@
+.botaoAdicionar {
+    border-radius: 50px;
+    width: 50px;
+    height: 50px;
+    margin: 2em;
+    font-size: 1.5em;
+    text-align: center;
+}
+
+.botaoAdicionar:hover {
+    background-color: darkgoldenrod;
+    color: yellow;
+    border-color: goldenrod;
+}
+
+.botaoAdicionar:active {
+    background-color: goldenrod;
+    color: white;
+    border-color: gold;
+}
