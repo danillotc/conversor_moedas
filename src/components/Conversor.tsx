@@ -1,7 +1,12 @@
 import React, { useState, useEffect, ChangeEvent } from 'react';
 import './Conversor.css'
 
-export default () => {
+interface Props {
+    closeable: boolean;
+    onClick(): void;
+}
+
+export default (props:Props) => {
     
     // Declarando estados
     const [moedas, setMoedas] = useState<string[]>([]);
@@ -57,9 +62,17 @@ export default () => {
     return (
         <div className="conversor">
 
-            <p>Converter 
-    
-                <input placeholder="quantidade" className='inputQuantidade' type='number' onChange={qtdHandler}/>
+            {props.closeable
+            ? 
+            <> 
+                <button className="botaoFechar" onClick={props.onClick}>X</button> 
+            </>
+            : ""
+            }
+
+            <p> 
+                <label htmlFor="inputQuantidade">Converter</label>
+                <input id="inputQuantidade" placeholder="quantidade" className='inputQuantidade' type='number' onChange={qtdHandler}/>
             
             </p>
 
