@@ -10,7 +10,7 @@ function App() {
   
   function criarConversor () {
     const conversoresExtras = conversores.map(conversor=>conversor);
-    conversoresExtras.push(<Conversor posicao={conversoresExtras.length} closeable={true} onClick={fecharConversor}/>)
+    conversoresExtras.push(<Conversor key={conversoresExtras.length} posicao={conversoresExtras.length} closeable={true} onClick={fecharConversor}/>)
     setConversores(conversoresExtras);
     console.log(`CRIEI O CONVERSOR ${conversores.length} (:`)
   }
