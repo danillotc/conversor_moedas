@@ -2,7 +2,6 @@ import React, {useState} from 'react';
 import './App.css';
 
 import Conversor from './components/Conversor'
-// import ConversoresExtra from './components/ConversoresExtra'
 import Adicionador from './components/Adicionador'
 
 function App() {
@@ -10,19 +9,16 @@ function App() {
   const [conversores, setConversores] = useState ([]);
   
   function criarConversor () {
-    const conversoresExtras = [];
-    for (let i=0; i<conversores.length+1; i++) {
-      conversoresExtras.push(<Conversor closeable={true} onClick={fecharConversor}/>);
-    }
+    const conversoresExtras = conversores.map(conversor=>conversor);
+    conversoresExtras.push(<Conversor posicao={conversoresExtras.length} closeable={true} onClick={fecharConversor}/>)
     setConversores(conversoresExtras);
+    console.log(`CRIEI O CONVERSOR ${conversores.length} (:`)
   }
   
-  function fecharConversor () {
-    const conversoresExtras = [];
-    for (let i=0; i<conversores.length; i++) {
-      conversoresExtras.push(<Conversor closeable={true} onClick={fecharConversor}/>);
-    }
+  function fecharConversor (posicao) {
+    const conversoresExtras = conversores.map(conversor=>conversor);
     setConversores(conversoresExtras);
+    console.log(`DELETEI O CONVERSOR ${posicao} :/`)
   }
 
   return (

@@ -3,7 +3,8 @@ import './Conversor.css'
 
 interface Props {
     closeable: boolean;
-    onClick(): void;
+    posicao: number;
+    onClick(posicao:number): void;
 }
 
 export default (props:Props) => {
@@ -65,7 +66,7 @@ export default (props:Props) => {
             {props.closeable
             ? 
             <> 
-                <button className="botaoFechar" onClick={props.onClick}>X</button> 
+                <button className="botaoFechar" onClick={()=>props.onClick(props.posicao)}>X</button> 
             </>
             : ""
             }
