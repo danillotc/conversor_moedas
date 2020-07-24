@@ -16,7 +16,8 @@ function App() {
   }
   
   function fecharConversor (posicao) {
-    const conversoresExtras = conversores.map(conversor=>conversor);
+    const conversoresExtras = conversores;
+    conversoresExtras.splice(posicao,1);
     setConversores(conversoresExtras);
     console.log(`DELETEI O CONVERSOR ${posicao} :/`)
   }
@@ -26,7 +27,7 @@ function App() {
       <h1>Conversor de moedas</h1>
       <div className="ConversorContainer">
         <Conversor closeable={false} />
-        {conversores}
+        {conversores.map(conversor=>conversor)}
         {conversores.length<=6
         ? <Adicionador onClick={criarConversor}/>
         : "Esta viagem é realmente necessária?"}
